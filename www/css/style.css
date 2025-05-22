@@ -4,6 +4,7 @@ body {
     background-image: url(../images/main.webp);
     background-size: cover;
 }
+
 h1 {
     color: #fcb42e;
     text-shadow: #333 2px 2px 4px;
@@ -11,11 +12,13 @@ h1 {
     line-height: 0;
     margin-top: 40px;
 }
+
 p {
     font-size: 18px;
     color: #333;
     text-align: justify;
 }
+
 div {
     margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.8);
@@ -23,6 +26,7 @@ div {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 nav ul {
     list-style: none; 
     padding: 0; 
@@ -30,6 +34,7 @@ nav ul {
     justify-content: left; 
     gap: 15px;
 }
+
 nav a {
     color: #fcb42e; 
     font-weight: bold;
