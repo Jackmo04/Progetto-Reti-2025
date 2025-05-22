@@ -8,7 +8,11 @@ WEB_ROOT = './www'
 MIME_TYPES = {
     ".html": "text/html",
     ".css": "text/css",
-    ".webp": "image/webp"
+    ".webp": "image/webp",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".gif": "image/gif"
 }
 
 def log(message):
