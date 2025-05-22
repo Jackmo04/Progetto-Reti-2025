@@ -23,9 +23,17 @@ def handle_request(conn):
         if not request:
             return
         
-        # Prendo il metodo (GET) e il percorso alla risorsa richiesta
+        # Prendo il metodo e il percorso alla risorsa richiesta
         method = request.split()[0]
         path = request.split()[1]
+
+        if method != "GET":
+            # Se il metodo non e' GET, invio una risposta 405 Method Not Allowed
+            conn.send("HTTP/1.1 405 Method Not Allowed\r\n".encode())
+            conn.send("Content-Type: text/html\r\n\r\n".encode())
+            conn.send("<h1>405 Method Not Allowed</h1>".encode())
+            log_request(method, path, 405)
+            return
 
         # Default a /index.html
         if path == "/":
