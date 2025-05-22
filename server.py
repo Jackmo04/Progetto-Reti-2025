@@ -11,10 +11,13 @@ MIME_TYPES = {
     ".webp": "image/webp"
 }
 
+def log(message):
+    """Logging"""
+    print(f"[{datetime.now()}] {message}")
 
 def log_request(method, path, code):
     """Logging delle richieste HTTP"""
-    print(f"[{datetime.now()}] {code} {method} {path}")
+    log(f"{code} {method} {path}")
 
 def handle_request(conn):
     """Gestione delle richieste HTTP"""
@@ -65,7 +68,7 @@ def handle_request(conn):
             log_request(method, path, 404)
 
     except Exception as e:
-        print("Error:", e)
+        log(f"Error: {e}")
     finally:
         conn.close()
 
@@ -76,7 +79,8 @@ def run_server():
         s.listen(1)
         print(f"Il server e' disponibile su {HOST}:{PORT}")
         while True:
-            conn, _ = s.accept()
+            conn, addr = s.accept()
+            log(f"Connessione da {addr[0]}:{addr[1]}")
             handle_request(conn)
 
 if __name__ == "__main__":
